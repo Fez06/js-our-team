@@ -91,7 +91,13 @@ team['Barbara Ramos'] = {
     console.log()
     console.log(team[details])
 };*/
+//----------------FUNZIONI
 
+function creaRiempiAppendi(cosaCreo, riempiCon, appendiA) {
+    let profileHtml1 = document.createElement(cosaCreo);
+    profileHtml1.innerHTML = riempiCon;
+    appendiA.append(profileHtml1);
+};
 
 //ora ultima milestone, stampo i details nel dom
 
@@ -105,17 +111,23 @@ for (let detail in team) {
     const ul = document.createElement('ul');
     mainWall.append(ul);
 
-    let profileHtml1 = document.createElement('li');
+    /*let profileHtml1 = document.createElement('li');
     profileHtml1.innerHTML = team[detail].nome;
-    ul.append(profileHtml1);
+    ul.append(profileHtml1);*/
+    creaRiempiAppendi('li', team[detail].nome, ul)
 
-    let profileHtml2 = document.createElement('li');
+    /*let profileHtml2 = document.createElement('li');
     profileHtml2.innerHTML = team[detail].ruolo;
-    ul.append(profileHtml2);
+    ul.append(profileHtml2);*/
+    creaRiempiAppendi('li', team[detail].ruolo, ul)
 
     let profileHtml3 = document.createElement('li');
-    profileHtml3.innerHTML = team[detail].pic;
+    profileHtml3.innerHTML = `<img src="img/${team[detail].pic}" alt="profile pic"></img>`;
     ul.append(profileHtml3);
+    //creaRiempiAppendi('li', team[detail].pic, ul)
 
     //console.log(team);
 };
+
+
+
